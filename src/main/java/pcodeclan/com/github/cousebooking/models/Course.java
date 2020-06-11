@@ -1,5 +1,6 @@
 package pcodeclan.com.github.cousebooking.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.annotation.Generated;
@@ -23,7 +24,7 @@ public class Course {
     @Column
     private int starRating;
 
-    @JsonIgnoreProperties("course")
+    @JsonBackReference
     @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
     private List<Booking> bookings;
 
