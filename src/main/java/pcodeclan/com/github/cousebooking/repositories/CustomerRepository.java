@@ -6,5 +6,5 @@ import pcodeclan.com.github.cousebooking.models.Customer;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
-
+//Get all customers for a given course
 }
