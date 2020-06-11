@@ -1,7 +1,6 @@
 package pcodeclan.com.github.cousebooking.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.annotation.Generated;
 import javax.persistence.*;
