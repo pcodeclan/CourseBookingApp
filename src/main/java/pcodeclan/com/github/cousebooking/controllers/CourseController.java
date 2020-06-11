@@ -16,14 +16,15 @@ public class CourseController {
     @Autowired
     private CourseRepository courseRepository;
 
-    //Get course by ID
+    //GET /resources/{id}
     @GetMapping(value = "/{id}")
     public ResponseEntity<Course> getOneCourse(@PathVariable Long id){
         return new ResponseEntity<>(courseRepository.findById(id).get(), HttpStatus.OK);
     }
-
     //Get all courses with a given rating
-    @GetMapping
+    //GET /resources
+    //GET /resource?property=value
+    @GetMapping(value = "")
     public ResponseEntity<List<Course>> getAllCoursesByRating(
             @RequestParam(name="rating", required = false) Integer rating
     ){
@@ -32,5 +33,25 @@ public class CourseController {
         }
         return new ResponseEntity<>(courseRepository.findAll(), HttpStatus.OK);
     }
+    //POST
+    @PostMapping
+    public ResponseEntity<Course> postCourse(@RequestBody Course course){
+        courseRepository.save(course);
+        return new ResponseEntity<>(course, HttpStatus.CREATED);
+    }
+    //PUT
+    @PutMapping(value = "{id}")
+    public ResponseEntity<Course> putCourse(@RequestBody Course course){
+        courseRepository.save(course);
+        return new ResponseEntity<>(course, HttpStatus.OK);
+    }
+    //DELETE
+    @DeleteMapping(value = "/{id")
+    public ResponseEntity<Long> deleteCourse(@PathVariable Long id){
+        courseRepository.deleteById(id);
+        return new ResponseEntity<>(id, HttpStatus.OK);
+    }
+
+
 
 }

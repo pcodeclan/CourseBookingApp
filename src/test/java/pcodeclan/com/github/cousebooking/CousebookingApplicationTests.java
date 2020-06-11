@@ -50,4 +50,9 @@ public class CousebookingApplicationTests {
 		List<Course> found = courseRepository.findByStarRating(5);
 		assertEquals(1, found.size());
 	}
+
+//	@Test
+//	void canPostCourse(){
+//
+//	}
 }
