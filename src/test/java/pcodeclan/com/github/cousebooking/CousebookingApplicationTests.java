@@ -12,6 +12,10 @@ import pcodeclan.com.github.cousebooking.repositories.BookingRepository;
 import pcodeclan.com.github.cousebooking.repositories.CourseRepository;
 import pcodeclan.com.github.cousebooking.repositories.CustomerRepository;
 
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+
 //@RunWith(SpringRunner.class)
 @SpringBootTest
 public class CousebookingApplicationTests {
@@ -39,5 +43,11 @@ public class CousebookingApplicationTests {
 
 		Booking booking1 = new Booking("01-05-20", course1, customer1);
 		bookingRepository.save(booking1);
+	}
+
+	@Test
+	void canFindCourseByStarRating() {
+		List<Course> found = courseRepository.findByStarRating(5);
+		assertEquals(1, found.size());
 	}
 }
